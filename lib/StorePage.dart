@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'GuitarBackground.dart';
+import 'ShowRoom.dart';
 import 'models/Guitar.dart';
 
 class StorePage extends StatefulWidget {
@@ -55,13 +56,13 @@ class _StorePageState extends State<StorePage> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (_) => ShowRoom(
-                      //       guitarList[index],
-                      //     ),
-                      //   ),
-                      // );
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => ShowRoom(
+                            theGuitar: guitarList[index]
+                          ),
+                        ),
+                      );
                     },
                     child: Container(
                       width: 230,
