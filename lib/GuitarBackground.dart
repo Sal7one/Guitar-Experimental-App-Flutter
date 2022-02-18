@@ -37,7 +37,7 @@ Widget GuitarBackground(int index, double width) {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  "${guitarList[index].price}",
+                  "${guitarList[index].price} \$",
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

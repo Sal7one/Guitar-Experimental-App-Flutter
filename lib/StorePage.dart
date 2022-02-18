@@ -13,37 +13,51 @@ class StorePage extends StatefulWidget {
 
 class _StorePageState extends State<StorePage> {
   List<Guitar> guitarList = Guitar.list;
-
+  double angleOfHamMenu = 0;
+  late final AnimationController _controller = AnimationController(vsync: this, duration: Duration(seconds: 2))..repeat();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar:  AppBar(
+        appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: GestureDetector(
-            onTap: ()=>{print("TODO") }, // TODO
-            child: const Icon(
-              Icons.menu,
-              color: Colors.black,
+          leading: Transform.rotate(
+            angle: angleOfHamMenu,
+            child: GestureDetector(
+              onTap: () => {
+              setState(() {
+                angleOfHamMenu == 0 ? angleOfHamMenu = math.pi/2 : angleOfHamMenu = 0;
+              })
+            }, // TODO
+              child: const Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
             ),
           ),
-        )
-        ,
+        ),
         body: ListView(
-          children:  [
+          children: [
             Padding(
               padding: const EdgeInsets.all(16),
-            child:  Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children:  const [
-                Text("Guitar shop",   style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 32,
-                ),),
-                Icon(Icons.music_note_sharp)
-              ],),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    "Guitar shop",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                  Icon(Icons.music_note_sharp)
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 18,
             ),
             Container(
               height: 300,
@@ -58,9 +72,8 @@ class _StorePageState extends State<StorePage> {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (_) => ShowRoom(
-                            theGuitar: guitarList[index]
-                          ),
+                          builder: (_) =>
+                              ShowRoom(theGuitar: guitarList[index]),
                         ),
                       );
                     },
