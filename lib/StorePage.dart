@@ -18,10 +18,13 @@ class _StorePageState extends State<StorePage> {
   List<Guitar> guitarList = Guitar.list;
   double angleOfHamMenu = 0;
 
+  var iconColor = Colors.black;
+
   changeTheme() async {
     var provider = Provider.of<ThemeState>(context, listen: false);
     String value = "";
     provider.userTheme == Constants.themePreferenceDark? value = Constants.themePreferenceLight : value = Constants.themePreferenceDark;
+    provider.userTheme == Constants.themePreferenceDark? iconColor = Colors.black : iconColor = Colors.white;
     Provider.of<ThemeState>(context, listen: false).userTheme = value;
   }
 
@@ -32,21 +35,23 @@ class _StorePageState extends State<StorePage> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: Transform.rotate(
-            angle: angleOfHamMenu,
-            child: GestureDetector(
-              onTap: () => {
-              setState(() {
-                changeTheme();
-                angleOfHamMenu == 0 ? angleOfHamMenu = math.pi/2 : angleOfHamMenu = 0;
-              })
-            }, // TODO
-              child: const Icon(
-                Icons.menu,
-                color: Colors.black,
+
+          actions:[ GestureDetector(
+            onTap: () => {
+            setState(() {
+              changeTheme();
+              angleOfHamMenu == 0 ? angleOfHamMenu = math.pi/2 : angleOfHamMenu = 0;
+            })
+          }, // TODO
+            child:  Padding(
+              padding:  EdgeInsets.all(16),
+              child:  Icon(
+                Icons.switch_account,
+                color: iconColor,
               ),
             ),
           ),
+          ]
         ),
         body: ListView(
           children: [
