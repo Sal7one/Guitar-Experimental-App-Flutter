@@ -27,7 +27,7 @@ class _StorePageState extends State<StorePage> {
             child: GestureDetector(
               onTap: () => {
               setState(() {
-                //currentTheme.toggleTheme();
+
                 angleOfHamMenu == 0 ? angleOfHamMenu = math.pi/2 : angleOfHamMenu = 0;
               })
             }, // TODO
