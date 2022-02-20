@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widgets/helpers/AppClipper.dart';
-import 'models/Guitar.dart';
+import '../widgets/helpers/AppClipper.dart';
+import '../models/Guitar.dart';
 
 Widget GuitarBackground(int index, double width) {
   List<Guitar> guitarList = Guitar.list;

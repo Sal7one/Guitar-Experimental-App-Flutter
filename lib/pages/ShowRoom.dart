@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:guitar_shop_practice/resources/colors/Colors.dart';
+import 'package:guitar_shop_practice/resources/theme/ThemeState.dart';
 
-import 'models/Guitar.dart';
+import '../models/Guitar.dart';
 
 class ShowRoom extends StatefulWidget {
   final Guitar theGuitar;
@@ -20,8 +22,9 @@ class _ShowRoomState extends State<ShowRoom> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: _theGuitar.color, // add to theme
           elevation: 0,
+          title: Text(_theGuitar.name),
         ),
         body: buildDetailBody(),
       ),
@@ -31,17 +34,17 @@ class _ShowRoomState extends State<ShowRoom> {
   Widget buildDetailBody() {
     return SingleChildScrollView(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment:CrossAxisAlignment.center,
         children: [
-          Container(
-                  child: Transform.rotate(
-                    angle: -0.4,
-                    child: Image(
-                      width: 75,
-                      image: AssetImage(
-                          "images/${_theGuitar.imgPath}"),
-                    ),
-                  ),
+           Transform.rotate(
+              angle: 0.4,
+              child: Image(
+                width: 75,
+                image: AssetImage(
+                    "images/${_theGuitar.imgPath}"),
               ),
+            ),
         ],
       ),
     );

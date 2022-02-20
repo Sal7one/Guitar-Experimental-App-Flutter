@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'dart:math' as math;
 import 'GuitarBackground.dart';
 import 'ShowRoom.dart';
-import 'models/Guitar.dart';
+import '../models/Guitar.dart';
 
 class StorePage extends StatefulWidget {
   const StorePage({Key? key}) : super(key: key);
@@ -44,7 +44,7 @@ class _StorePageState extends State<StorePage> {
             })
           }, // TODO
             child:  Padding(
-              padding:  EdgeInsets.all(16),
+              padding:  const EdgeInsets.all(16),
               child:  Icon(
                 Icons.switch_account,
                 color: iconColor,

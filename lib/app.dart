@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:guitar_shop_practice/StorePage.dart';
+import 'package:guitar_shop_practice/pages/StorePage.dart';
 import 'package:guitar_shop_practice/resources/theme/CustomAppTheme.dart';
 import 'package:guitar_shop_practice/resources/theme/ThemeState.dart';
 import 'package:provider/provider.dart';
