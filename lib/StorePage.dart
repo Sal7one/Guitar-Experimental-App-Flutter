@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:guitar_shop_practice/constants.dart';
+import 'package:guitar_shop_practice/resources/theme/ThemeState.dart';
+import 'package:provider/provider.dart';
 import 'dart:math' as math;
 import 'GuitarBackground.dart';
 import 'ShowRoom.dart';
@@ -15,6 +18,13 @@ class _StorePageState extends State<StorePage> {
   List<Guitar> guitarList = Guitar.list;
   double angleOfHamMenu = 0;
 
+  changeTheme() async {
+    var provider = Provider.of<ThemeState>(context, listen: false);
+    String value = "";
+    provider.userTheme == Constants.themePreferenceDark? value = Constants.themePreferenceLight : value = Constants.themePreferenceDark;
+    Provider.of<ThemeState>(context, listen: false).userTheme = value;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,7 +37,7 @@ class _StorePageState extends State<StorePage> {
             child: GestureDetector(
               onTap: () => {
               setState(() {
-
+                changeTheme();
                 angleOfHamMenu == 0 ? angleOfHamMenu = math.pi/2 : angleOfHamMenu = 0;
               })
             }, // TODO
