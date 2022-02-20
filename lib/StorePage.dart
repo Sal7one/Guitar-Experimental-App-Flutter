@@ -14,7 +14,6 @@ class StorePage extends StatefulWidget {
 class _StorePageState extends State<StorePage> {
   List<Guitar> guitarList = Guitar.list;
   double angleOfHamMenu = 0;
-  late final AnimationController _controller = AnimationController(vsync: this, duration: Duration(seconds: 2))..repeat();
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +27,7 @@ class _StorePageState extends State<StorePage> {
             child: GestureDetector(
               onTap: () => {
               setState(() {
+                //currentTheme.toggleTheme();
                 angleOfHamMenu == 0 ? angleOfHamMenu = math.pi/2 : angleOfHamMenu = 0;
               })
             }, // TODO
@@ -47,10 +47,6 @@ class _StorePageState extends State<StorePage> {
                 children: const [
                   Text(
                     "Guitar shop",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 32,
-                    ),
                   ),
                   Icon(Icons.music_note_sharp)
                 ],
@@ -112,5 +108,12 @@ class _StorePageState extends State<StorePage> {
         ),
       ),
     );
+  }
+
+  TextStyle MainHeader() {
+    return const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 32,
+                  );
   }
 }

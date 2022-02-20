@@ -22,24 +22,27 @@ class _ShowRoomState extends State<ShowRoom> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: GestureDetector(
-            onTap: () => {print("TODO")}, // TODO
-            child: const Icon(
-              Icons.menu,
-              color: Colors.black,
-            ),
-          ),
         ),
-        body: Container(
-              child: Transform.rotate(
-                angle: -0.4,
-                child: Image(
-                  width: 75,
-                  image: AssetImage(
-                      "images/${_theGuitar.imgPath}"),
-                ),
+        body: buildDetailBody(),
+      ),
+    );
+  }
+
+  Widget buildDetailBody() {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+                  child: Transform.rotate(
+                    angle: -0.4,
+                    child: Image(
+                      width: 75,
+                      image: AssetImage(
+                          "images/${_theGuitar.imgPath}"),
+                    ),
+                  ),
               ),
-          ),
+        ],
       ),
     );
   }

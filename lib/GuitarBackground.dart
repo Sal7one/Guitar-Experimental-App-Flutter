@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'AppClipper.dart';
+import 'widgets/helpers/AppClipper.dart';
 import 'models/Guitar.dart';
 
 Widget GuitarBackground(int index, double width) {
