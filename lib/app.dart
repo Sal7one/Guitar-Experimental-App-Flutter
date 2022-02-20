@@ -10,7 +10,7 @@ class GuitarShopApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MultiProvider(
+    return MultiProvider(
       providers: <SingleChildWidget>[
         ChangeNotifierProvider<ThemeState>.value(
           value: ThemeState(),
