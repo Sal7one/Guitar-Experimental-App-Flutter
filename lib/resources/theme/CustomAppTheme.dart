@@ -3,13 +3,24 @@ import 'package:flutter/services.dart';
 import 'package:guitar_shop_practice/resources/colors/Colors.dart';
 
 class CustomAppTheme with ChangeNotifier {
-  static ThemeData get lightTheme {
+  static ThemeData get globalAppTheme {
     return ThemeData(
+      fontFamily: 'open-sans',
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          selectedItemColor: ApplicationColors.bottomNavItem,
+          backgroundColor: ApplicationColors.bottomNavBackground),
+    );
+  }
+
+  static ThemeData get lightTheme {
+    return globalAppTheme.copyWith(
       primaryColor: LightColors.primary,
       scaffoldBackgroundColor: LightColors.scaffold,
       appBarTheme: lightAppBarTheme(),
-      // Custom
-      fontFamily: 'Roboto',
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          selectedItemColor: LightColors.bottomNavItem,
+          backgroundColor: LightColors.bottomNavBackground,
+          unselectedItemColor: LightColors.bottomNavItemNotSelected),
       iconTheme: const IconThemeData(color: LightColors.black),
       textTheme: const TextTheme(
         headline1: TextStyle(color: LightColors.black),
@@ -21,10 +32,15 @@ class CustomAppTheme with ChangeNotifier {
   }
 
   static ThemeData get darkTheme {
-    return ThemeData(
+    return globalAppTheme.copyWith(
       primaryColor: DarkColors.primary,
       scaffoldBackgroundColor: DarkColors.scaffold,
       appBarTheme: darkAppBarTheme(),
+      bottomAppBarColor: DarkColors.bottomNavBackground,
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          selectedItemColor: DarkColors.bottomNavItem,
+          backgroundColor: DarkColors.bottomNavBackground,
+          unselectedItemColor: DarkColors.bottomNavItemNotSelected),
       iconTheme: const IconThemeData(color: DarkColors.white),
       textTheme: const TextTheme(
         headline1: TextStyle(color: DarkColors.white),
@@ -32,7 +48,7 @@ class CustomAppTheme with ChangeNotifier {
         bodyText1: TextStyle(color: Colors.white),
         bodyText2: TextStyle(color: Colors.white),
       ),
-    ); // Custom
+    );
   }
 
   static AppBarTheme lightAppBarTheme() {

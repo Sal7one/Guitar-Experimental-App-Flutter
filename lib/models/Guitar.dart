@@ -19,7 +19,7 @@ class Guitar {
 
   static List<Guitar> list = [
     Guitar(
-      name: "Blues guitar ",
+      name: "Blues Bass ",
       desc: "Bluess",
       price: 184,
       color: Colors.black,

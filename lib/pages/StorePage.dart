@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:fluttericon/typicons_icons.dart';
 import 'package:guitar_shop_practice/constants.dart';
 import 'package:guitar_shop_practice/resources/theme/ThemeState.dart';
 import 'package:provider/provider.dart';
-import 'GuitarBackground.dart';
+import 'package:guitar_shop_practice/models/Guitar.dart';
+import 'package:guitar_shop_practice/pages/widgets/GuitarBackground.dart';
 import 'ShowRoom.dart';
-import '../models/Guitar.dart';
 
 class StorePage extends StatefulWidget {
   const StorePage({Key? key}) : super(key: key);
@@ -18,6 +19,11 @@ class _StorePageState extends State<StorePage> {
   List<Guitar> guitarList = Guitar.list;
   late var themeProvider;
 
+  @override
+  void initState() {
+    themeProvider = Provider.of<ThemeState>(context, listen: false);
+  }
+
   changeTheme() async {
     themeProvider = Provider.of<ThemeState>(context, listen: false);
     String value = "";
@@ -27,15 +33,52 @@ class _StorePageState extends State<StorePage> {
     Provider.of<ThemeState>(context, listen: false).userTheme = value;
   }
 
-  @override
-  void initState() {
-    themeProvider = Provider.of<ThemeState>(context, listen: false);
+  isDark() => themeProvider.userTheme == Constants.themePreferenceDark;
+
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesome5.guitar),
+              label: 'Store',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesome5.info),
+              label: 'About',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+          selectedItemColor: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+          onTap: _onItemTapped,
+        ),
         appBar:
             AppBar(backgroundColor: Colors.transparent, elevation: 0, actions: [
           GestureDetector(
@@ -43,7 +86,7 @@ class _StorePageState extends State<StorePage> {
               setState(() {
                 changeTheme();
               })
-            }, // TODO
+            },
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Icon(
@@ -59,7 +102,7 @@ class _StorePageState extends State<StorePage> {
               padding: const EdgeInsets.all(16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children:  [
+                children: [
                   Text(
                     Constants.storePageTitle,
                     style: Theme.of(context).textTheme.headline5,
@@ -69,10 +112,10 @@ class _StorePageState extends State<StorePage> {
               ),
             ),
             const SizedBox(
-              height: 18,
+              height: 60,
             ),
             Container(
-              height: 300,
+              height: 320,
               margin: const EdgeInsets.symmetric(vertical: 16),
               child: ListView.builder(
                 itemCount: guitarList.length,
@@ -100,7 +143,7 @@ class _StorePageState extends State<StorePage> {
                           ),
                           Positioned(
                             right: 55,
-                            bottom: 55,
+                            bottom: 65,
                             child: Hero(
                               tag: "hero${guitarList[index].imgPath}",
                               child: Transform.rotate(
@@ -108,7 +151,7 @@ class _StorePageState extends State<StorePage> {
                                 child: Image(
                                   width: 75,
                                   image: AssetImage(
-                                      "images/${guitarList[index].imgPath}"), // TODO IMAGE HELPER UTIL
+                                      "images/${guitarList[index].imgPath}"), // TODO IMAGE HELPER UTIL for folders
                                 ),
                               ),
                             ),
@@ -125,6 +168,4 @@ class _StorePageState extends State<StorePage> {
       ),
     );
   }
-
-  isDark() => themeProvider.userTheme == Constants.themePreferenceDark;
 }

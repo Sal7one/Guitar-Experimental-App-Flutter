@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import '../widgets/helpers/AppClipper.dart';
-import '../models/Guitar.dart';
-import 'package:guitar_shop_practice/utils/extensions.dart';
+import 'helpers/AppClipper.dart';
+import 'package:guitar_shop_practice/models/Guitar.dart';
 
 Widget GuitarBackground(int index, double width, BuildContext context) {
   List<Guitar> guitarList = Guitar.list;
 
   return ClipPath(
-    clipper: AppClipper(cornerSize: 25, diagonalHeight: 100),
+    clipper: AppClipper(cornerSize: 26, diagonalHeight: 135),
     child: Container(
       color: guitarList[index].color,
       width: width,
@@ -41,26 +40,6 @@ Widget GuitarBackground(int index, double width, BuildContext context) {
               ],
             ),
           ),
-          // Positioned(
-          //   bottom: 0,
-          //   right: 0,
-          //   child: Container(
-          //     width: 50,
-          //     height: 50,
-          //     decoration: const BoxDecoration(
-          //       color: Colors.green,
-          //       borderRadius: BorderRadius.only(
-          //         topLeft: Radius.circular(10),
-          //       ),
-          //     ),
-          //     child: const Center(
-          //       child: Icon(
-          //         Icons.add,
-          //         color: Colors.white,
-          //       ),
-          //     ),
-          //   ),
-          // )
         ],
       ),
     ),
