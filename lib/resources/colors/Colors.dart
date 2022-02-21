@@ -16,7 +16,7 @@ class LightColors extends ApplicationColors {
   static const Color appBarContent = Color(0xFFFFFFFF);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF141414);
-  static const Color bottomNavBackground =  Color(0xFF141414);
+  static const Color bottomNavBackground =  Color(0xFFa1a1a1);
   static const Color bottomNavItem =  Color(0xFF6002EE);
   static const Color bottomNavItemNotSelected =  Color(0xFFFFFFFF);
   static const Color textPrimary = TextColors.lightPrimary;
