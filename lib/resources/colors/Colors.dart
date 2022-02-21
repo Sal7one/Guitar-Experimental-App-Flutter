@@ -31,7 +31,7 @@ class DarkColors extends ApplicationColors {
 }
 
 class TextColors {
-  static const Color lightPrimary = Color(0x00000000);
+  static const Color lightPrimary = Color(0xFF141414);
   static const Color darkPrimary = Color(0xFFFFFFFF);
   static const Color lightSecondary = Color(0xFF6002EE);
   static const Color darkSecondary = Color(0xFF6002EE);

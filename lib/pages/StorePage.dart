@@ -64,7 +64,7 @@ class _StorePageState extends State<StorePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Text(
-                    "Guitar shop",
+                    Constants.storePageTitle,
                   ),
                   Icon(Icons.music_note_sharp)
                 ],
@@ -75,12 +75,12 @@ class _StorePageState extends State<StorePage> {
             ),
             Container(
               height: 300,
-              margin: EdgeInsets.symmetric(vertical: 16),
+              margin: const EdgeInsets.symmetric(vertical: 16),
               child: ListView.builder(
                 itemCount: guitarList.length,
                 scrollDirection: Axis.horizontal,
-                physics: BouncingScrollPhysics(),
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
@@ -98,7 +98,7 @@ class _StorePageState extends State<StorePage> {
                         children: <Widget>[
                           Padding(
                             padding: const EdgeInsets.only(top: 25),
-                            child: GuitarBackground(index, 230),
+                            child: GuitarBackground(index, 230, context),
                           ),
                           Positioned(
                             right: 55,
@@ -110,7 +110,7 @@ class _StorePageState extends State<StorePage> {
                                 child: Image(
                                   width: 75,
                                   image: AssetImage(
-                                      "images/${guitarList[index].imgPath}"),
+                                      "images/${guitarList[index].imgPath}"), // TODO IMAGE HELPER UTIL
                                 ),
                               ),
                             ),
@@ -125,13 +125,6 @@ class _StorePageState extends State<StorePage> {
           ],
         ),
       ),
-    );
-  }
-
-  TextStyle MainHeader() {
-    return const TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 32,
     );
   }
 }

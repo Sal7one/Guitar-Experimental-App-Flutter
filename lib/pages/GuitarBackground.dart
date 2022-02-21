@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../widgets/helpers/AppClipper.dart';
 import '../models/Guitar.dart';
+import 'package:guitar_shop_practice/utils/extensions.dart';
 
-Widget GuitarBackground(int index, double width) {
+Widget GuitarBackground(int index, double width, BuildContext context) {
   List<Guitar> guitarList = Guitar.list;
 
   return ClipPath(
@@ -30,18 +31,11 @@ Widget GuitarBackground(int index, double width) {
                   width: 125,
                   child: Text(
                     guitarList[index].name,
-                    style: const TextStyle(
-                      color: Colors.white,
-                    ),
                   ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   "${guitarList[index].price} \$",
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
                 ),
                 const SizedBox(height: 16),
               ],
