@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttericon/typicons_icons.dart';
 import 'package:guitar_shop_practice/constants.dart';
 import 'package:guitar_shop_practice/resources/theme/ThemeState.dart';
 import 'package:provider/provider.dart';
-import 'dart:math' as math;
 import 'GuitarBackground.dart';
 import 'ShowRoom.dart';
 import '../models/Guitar.dart';
@@ -16,20 +16,20 @@ class StorePage extends StatefulWidget {
 
 class _StorePageState extends State<StorePage> {
   List<Guitar> guitarList = Guitar.list;
-  double angleOfHamMenu = 0;
-
-  var iconColor = Colors.black;
+  late var themeProvider;
 
   changeTheme() async {
-    var provider = Provider.of<ThemeState>(context, listen: false);
+    themeProvider = Provider.of<ThemeState>(context, listen: false);
     String value = "";
-    provider.userTheme == Constants.themePreferenceDark
+    isDark()
         ? value = Constants.themePreferenceLight
         : value = Constants.themePreferenceDark;
-    provider.userTheme == Constants.themePreferenceDark
-        ? iconColor = Colors.black
-        : iconColor = Colors.white;
     Provider.of<ThemeState>(context, listen: false).userTheme = value;
+  }
+
+  @override
+  void initState() {
+    themeProvider = Provider.of<ThemeState>(context, listen: false);
   }
 
   @override
@@ -42,16 +42,13 @@ class _StorePageState extends State<StorePage> {
             onTap: () => {
               setState(() {
                 changeTheme();
-                angleOfHamMenu == 0
-                    ? angleOfHamMenu = math.pi / 2
-                    : angleOfHamMenu = 0;
               })
             }, // TODO
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Icon(
-                Icons.switch_account,
-                color: iconColor,
+                isDark() ? Typicons.contrast : Typicons.sun,
+                color: Theme.of(context).iconTheme.color,
               ),
             ),
           ),
@@ -62,11 +59,12 @@ class _StorePageState extends State<StorePage> {
               padding: const EdgeInsets.all(16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children:  [
                   Text(
                     Constants.storePageTitle,
+                    style: Theme.of(context).textTheme.headline5,
                   ),
-                  Icon(Icons.music_note_sharp)
+                  const Icon(Icons.music_note_sharp)
                 ],
               ),
             ),
@@ -127,4 +125,6 @@ class _StorePageState extends State<StorePage> {
       ),
     );
   }
+
+  isDark() => themeProvider.userTheme == Constants.themePreferenceDark;
 }

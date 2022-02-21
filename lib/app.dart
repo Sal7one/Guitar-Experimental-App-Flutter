@@ -30,8 +30,8 @@ class MaterialAppWithPreferences extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: CustomAppTheme.lightTheme.copyWith(textTheme: CustomAppTheme.globalTextTheme),
-      darkTheme: CustomAppTheme.darkTheme.copyWith(textTheme: CustomAppTheme.globalTextTheme),
+      theme: CustomAppTheme.lightTheme,
+      darkTheme: CustomAppTheme.darkTheme,
       themeMode: themeState.theme,
       home: const StorePage(),
     );

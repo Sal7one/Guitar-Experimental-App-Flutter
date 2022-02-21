@@ -4,7 +4,8 @@ import 'package:guitar_shop_practice/resources/colors/Colors.dart';
 import '../../constants.dart';
 
 class ThemeState with ChangeNotifier {
-  String _userTheme = DataStore.getString(Constants.themePreferenceKey, Constants.themePreferenceLight);
+  String _userTheme = DataStore.getString(
+      Constants.themePreferenceKey, Constants.themePreferenceLight);
 
   String get userTheme => _userTheme;
 
