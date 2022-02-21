@@ -3,4 +3,5 @@ class Constants {
   static const String themePreferenceLight = "theme_light";
   static const String themePreferenceDark = "theme_dark";
   static const String storePageTitle = "Welcome to my Guitar Shop";
+  static const String aboutPageTitle = "About This App";
 }

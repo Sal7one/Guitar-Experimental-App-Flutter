@@ -22,12 +22,12 @@ class DataStore {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  // get string
+  // get string TODO ADD NULL CHECKS
   static String getString(String key, String defValue) {
     return _prefs?.getString(key) ?? defValue;
   }
 
-  // put string
+  // put string TODO ADD NULL CHECKS
   static Future<bool>? putString(String key, String? value) {
     return _prefs!.setString(key, value!);
   }
