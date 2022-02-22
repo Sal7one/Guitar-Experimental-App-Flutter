@@ -23,9 +23,11 @@ class _StorePageState extends State<StorePage> {
 
   @override
   void initState() {
+    super.initState();
     themeProvider = Provider.of<ThemeState>(context, listen: false);
     changeCurrentWidget();
   }
+
 
   changeTheme() async {
     themeProvider = Provider.of<ThemeState>(context, listen: false);
@@ -85,12 +87,15 @@ class _StorePageState extends State<StorePage> {
           ),
         ]),
         body: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 380),
+          duration: const Duration(milliseconds: 400),
           transitionBuilder: (child, animation) {
-            return SlideTransition(
-              position: Tween<Offset>(begin: const Offset(1, 0), end: const Offset(0, 0))
-                  .animate(animation),
-              child: child,
+            return FadeTransition(
+              opacity: animation,
+              child: SlideTransition(
+                position: Tween<Offset>(begin: const Offset(1, 0), end: const Offset(0, 0))
+                    .animate(animation),
+                child: child,
+              ),
             );
           },
           child: currentPageWidget,
