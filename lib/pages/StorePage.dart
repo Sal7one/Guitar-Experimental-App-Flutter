@@ -19,10 +19,12 @@ class _StorePageState extends State<StorePage> {
   List<Guitar> guitarList = Guitar.list;
   late var themeProvider;
   int currentPage = 0;
+  late Widget currentPageWidget;
 
   @override
   void initState() {
     themeProvider = Provider.of<ThemeState>(context, listen: false);
+    changeCurrentWidget();
   }
 
   changeTheme() async {
@@ -39,6 +41,7 @@ class _StorePageState extends State<StorePage> {
   void _onItemTapped(int index) {
     setState(() {
       currentPage = index;
+      changeCurrentWidget();
     });
   }
 
@@ -81,8 +84,25 @@ class _StorePageState extends State<StorePage> {
             ),
           ),
         ]),
-        body: currentPage == 0? GuitarRoom(guitarList: guitarList) : const About(),
+        body: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 380),
+          transitionBuilder: (child, animation) {
+            return SlideTransition(
+              position: Tween<Offset>(begin: const Offset(1, 0), end: const Offset(0, 0))
+                  .animate(animation),
+              child: child,
+            );
+          },
+          child: currentPageWidget,
+        ),
       ),
     );
+  }
+
+  // Animated Switcher helper
+  void changeCurrentWidget() {
+    currentPage == 0
+        ? currentPageWidget = GuitarRoom(guitarList: guitarList)
+        : currentPageWidget = const About();
   }
 }

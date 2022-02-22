@@ -16,9 +16,14 @@ class _AboutState extends State<About> {
       children: [
         Container(
           padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
-          child: Text(
-            Constants.aboutPageTitle,
-            style: Theme.of(context).textTheme.headline5,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                Constants.aboutPageTitle,
+                style: Theme.of(context).textTheme.headline5,
+              ),
+            ],
           ),
         ),
       ],
