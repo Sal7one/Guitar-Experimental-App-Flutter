@@ -35,6 +35,7 @@ Widget GuitarBackground(int index, double width, BuildContext context) {
                 const SizedBox(height: 8),
                 Text(
                   "${guitarList[index].price} \$",
+                  style: Theme.of(context).textTheme.bodyText2,
                 ),
                 const SizedBox(height: 16),
               ],

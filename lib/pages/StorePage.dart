@@ -18,7 +18,7 @@ class StorePage extends StatefulWidget {
 class _StorePageState extends State<StorePage> {
   List<Guitar> guitarList = Guitar.list;
   late var themeProvider;
-  int currentPage = 0;
+  int currentPage = 1;
   late Widget currentPageWidget;
 
   @override
@@ -51,24 +51,7 @@ class _StorePageState extends State<StorePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(FontAwesome5.guitar),
-              label: 'Store',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(FontAwesome5.info),
-              label: 'About',
-            ),
-          ],
-          currentIndex: currentPage,
-          backgroundColor:
-              Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-          selectedItemColor:
-              Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
-          onTap: _onItemTapped,
-        ),
+
         appBar:
             AppBar(backgroundColor: Colors.transparent, elevation: 0, actions: [
           GestureDetector(
@@ -86,6 +69,24 @@ class _StorePageState extends State<StorePage> {
             ),
           ),
         ]),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesome5.guitar),
+              label: 'Store',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesome5.info),
+              label: 'About',
+            ),
+          ],
+          currentIndex: currentPage,
+          backgroundColor:
+          Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+          selectedItemColor:
+          Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+          onTap: _onItemTapped,
+        ),
         body: AnimatedSwitcher(
           duration: const Duration(milliseconds: 400),
           transitionBuilder: (child, animation) {

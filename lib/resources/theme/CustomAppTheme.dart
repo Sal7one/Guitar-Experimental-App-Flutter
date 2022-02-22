@@ -9,6 +9,11 @@ class CustomAppTheme with ChangeNotifier {
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           selectedItemColor: ApplicationColors.bottomNavItem,
           backgroundColor: ApplicationColors.bottomNavBackground),
+      textTheme: const TextTheme(
+          bodyText1: TextStyle(fontSize: 24),
+          bodyText2: TextStyle(color: LightColors.white),
+          headline5: TextStyle(color: LightColors.white)
+      ),
     );
   }
 
@@ -22,11 +27,11 @@ class CustomAppTheme with ChangeNotifier {
           backgroundColor: LightColors.bottomNavBackground,
           unselectedItemColor: LightColors.bottomNavItemNotSelected),
       iconTheme: const IconThemeData(color: LightColors.black),
-      textTheme: const TextTheme(
-        headline1: TextStyle(color: LightColors.black),
-        headline5: TextStyle(color: LightColors.black),
-        bodyText1: TextStyle(color: Colors.white),
-        bodyText2: TextStyle(color: Colors.white),
+      textTheme: globalAppTheme.textTheme.copyWith(
+        headline5: globalAppTheme.textTheme.headline5
+            ?.copyWith(color: LightColors.black),
+        bodyText1: globalAppTheme.textTheme.bodyText1
+            ?.copyWith(color: LightColors.black),
       ),
     );
   }
@@ -42,11 +47,12 @@ class CustomAppTheme with ChangeNotifier {
           backgroundColor: DarkColors.bottomNavBackground,
           unselectedItemColor: DarkColors.bottomNavItemNotSelected),
       iconTheme: const IconThemeData(color: DarkColors.white),
-      textTheme: const TextTheme(
-        headline1: TextStyle(color: DarkColors.white),
-        headline5: TextStyle(color: DarkColors.white),
-        bodyText1: TextStyle(color: Colors.white),
-        bodyText2: TextStyle(color: Colors.white),
+      // Copy Style of parent and only modify colors
+      textTheme: globalAppTheme.textTheme.copyWith(
+        headline5: globalAppTheme.textTheme.headline5
+            ?.copyWith(color: LightColors.white),
+        bodyText1: globalAppTheme.textTheme.bodyText1
+            ?.copyWith(color: LightColors.white),
       ),
     );
   }

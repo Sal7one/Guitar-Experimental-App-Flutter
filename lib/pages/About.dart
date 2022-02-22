@@ -11,22 +11,39 @@ class About extends StatefulWidget {
 class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                Constants.aboutPageTitle,
-                style: Theme.of(context).textTheme.headline5,
-              ),
-            ],
+    return Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+            child: Text(
+              Constants.aboutPageTitle,
+              style: Theme.of(context).textTheme.headline5,
+            ),
           ),
-        ),
-      ],
+          Container(
+            padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+            child: Text(
+              Constants.aboutPageWelcome,
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(15, 20, 0, 0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(60), // Image border
+              child: SizedBox.fromSize(
+                child: Image.network(
+                  "https://avatars.githubusercontent.com/u/20628286?v=4",
+                  width: 210,
+                  height: 210,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
