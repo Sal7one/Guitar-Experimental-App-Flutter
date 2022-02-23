@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/Guitar.dart';
+import 'package:guitar_shop_practice/models/Guitar.dart';
 
 class ShowRoom extends StatefulWidget {
   final Guitar theGuitar;
