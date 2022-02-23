@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:fluttericon/typicons_icons.dart';
-import 'package:guitar_shop_practice/constants.dart';
+import 'package:guitar_shop_practice/repository/Constants.dart';
 import 'package:guitar_shop_practice/pages/About.dart';
 import 'package:guitar_shop_practice/pages/GuitarRoom.dart';
 import 'package:guitar_shop_practice/resources/theme/ThemeState.dart';

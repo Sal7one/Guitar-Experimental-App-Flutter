@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:guitar_shop_practice/constants.dart';
+import 'package:guitar_shop_practice/repository/Constants.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);

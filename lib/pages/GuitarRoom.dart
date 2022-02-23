@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:guitar_shop_practice/pages/widgets/GuitarBackground.dart';
-import 'package:guitar_shop_practice/constants.dart';
+import 'package:guitar_shop_practice/repository/Constants.dart';
 import 'package:guitar_shop_practice/models/Guitar.dart';
 import 'ShowRoom.dart';
 

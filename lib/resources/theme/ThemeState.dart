@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:guitar_shop_practice/repo/DataStore.dart';
+import 'package:guitar_shop_practice/repository/DataStore.dart';
 import 'package:guitar_shop_practice/resources/colors/Colors.dart';
-import '../../constants.dart';
+import '../../repository/Constants.dart';
 
 class ThemeState with ChangeNotifier {
   String _userTheme = DataStore.getString(
