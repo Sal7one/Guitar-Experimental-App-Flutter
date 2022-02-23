@@ -10,10 +10,9 @@ class CustomAppTheme with ChangeNotifier {
           selectedItemColor: ApplicationColors.bottomNavItem,
           backgroundColor: ApplicationColors.bottomNavBackground),
       textTheme: const TextTheme(
-          bodyText1: TextStyle(fontSize: 24),
+          bodyText1: TextStyle(fontSize: 20),
           bodyText2: TextStyle(color: LightColors.white),
-          headline5: TextStyle(color: LightColors.white)
-      ),
+          headline5: TextStyle(color: LightColors.white)),
     );
   }
 

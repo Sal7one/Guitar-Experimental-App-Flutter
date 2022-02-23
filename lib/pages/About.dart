@@ -22,6 +22,9 @@ class _AboutState extends State<About> {
               style: Theme.of(context).textTheme.headline5,
             ),
           ),
+          const SizedBox(
+            height: 50,
+          ),
           Container(
             padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
             child: Text(
@@ -40,6 +43,16 @@ class _AboutState extends State<About> {
                   height: 210,
                 ),
               ),
+            ),
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
+            child: Text(
+              Constants.aboutPageDetails,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
           ),
         ],
