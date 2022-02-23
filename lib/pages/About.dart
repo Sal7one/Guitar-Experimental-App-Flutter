@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guitar_shop_practice/repository/Constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
@@ -36,11 +37,14 @@ class _AboutState extends State<About> {
             padding: const EdgeInsets.fromLTRB(15, 20, 0, 0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(60), // Image border
-              child: SizedBox.fromSize(
-                child: Image.network(
-                  "https://avatars.githubusercontent.com/u/20628286?v=4",
-                  width: 210,
-                  height: 210,
+              child: GestureDetector(
+                onTap: openLink,
+                child: SizedBox.fromSize(
+                  child: Image.network(
+                    "https://avatars.githubusercontent.com/u/20628286?v=4",
+                    width: 210,
+                    height: 210,
+                  ),
                 ),
               ),
             ),
@@ -58,5 +62,9 @@ class _AboutState extends State<About> {
         ],
       ),
     );
+  }
+  void openLink() async {
+    var _url = "https://Github.com/Sal7one";
+    if (!await launch(_url)) throw 'Could not launch $_url';
   }
 }
