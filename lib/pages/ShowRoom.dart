@@ -19,7 +19,6 @@ class _ShowRoomState extends State<ShowRoom> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: _theGuitar.color,
           elevation: 0,
           title: Text(_theGuitar.name),
         ),
@@ -30,18 +29,18 @@ class _ShowRoomState extends State<ShowRoom> {
 
   Widget buildDetailBody() {
     return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 50,),
-            Image(
-              height: 650,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Transform.rotate(
+            angle: 0.4,
+            child: Image(
+              width: 75,
               image: AssetImage("images/${_theGuitar.imgPath}"),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

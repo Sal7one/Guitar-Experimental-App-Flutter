@@ -18,7 +18,7 @@ class StorePage extends StatefulWidget {
 class _StorePageState extends State<StorePage> {
   List<Guitar> guitarList = Guitar.list;
   late var themeProvider;
-  int currentPage = 0;
+  int currentPage = 1;
   late Widget currentPageWidget;
 
   @override

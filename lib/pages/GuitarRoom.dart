@@ -61,14 +61,14 @@ class GuitarRoom extends StatelessWidget {
                         child: GuitarBackground(index, 230, context),
                       ),
                       Positioned(
-                        right: 36,
-                        bottom: 75,
+                        right: 55,
+                        bottom: 65,
                         child: Hero(
                           tag: "hero${guitarList[index].imgPath}",
                           child: Transform.rotate(
-                            angle: -0.35,
+                            angle: -0.4,
                             child: Image(
-                              height: 225,
+                              width: 75,
                               image: AssetImage(
                                   "images/${guitarList[index].imgPath}"), // TODO IMAGE HELPER UTIL for folders
                             ),
