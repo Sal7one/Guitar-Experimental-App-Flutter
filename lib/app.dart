@@ -3,19 +3,14 @@ import 'package:guitar_shop_practice/pages/StorePage.dart';
 import 'package:guitar_shop_practice/resources/theme/CustomAppTheme.dart';
 import 'package:guitar_shop_practice/resources/theme/ThemeState.dart';
 import 'package:provider/provider.dart';
-import 'package:provider/single_child_widget.dart';
 
 class GuitarShopApp extends StatelessWidget {
   const GuitarShopApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: <SingleChildWidget>[
-        ChangeNotifierProvider<ThemeState>.value(
-          value: ThemeState(),
-        ),
-      ],
+    return ChangeNotifierProvider(
+      create: (context) => ThemeState(),
       child: const MaterialAppWithPreferences(),
     );
   }
