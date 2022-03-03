@@ -7,6 +7,9 @@
  2 - I Also use Experimental Architectures and folder structures  
 
  3 - Practice to sharpen my rusty UI skills in Flutter
+ 
+<img src="https://github.com/Sal7one/Guitar-Experimental-App-Flutter/blob/master/gif_guitar.gif" alt="feed example" width="250">
+
 
 --  Saleh 2022
 
