@@ -1,6 +1,6 @@
 # Guitar_shop_practice 
 
-# I use this app to experiment with Flutter integration and it's design patters 
+# I use this app to experiment with Flutter integration and it's design patterns 
 
  1 - Ex..How themes and State management should be connected
 
